@@ -20,8 +20,7 @@ const Classroom = ({ userObj }) => {
     return gapi.auth2
       .getAuthInstance()
       .signIn({
-        scope:
-          "https://www.googleapis.com/auth/classroom.coursework.me https://www.googleapis.com/auth/classroom.coursework.me.readonly https://www.googleapis.com/auth/classroom.coursework.students https://www.googleapis.com/auth/classroom.coursework.students.readonly https://www.googleapis.com/auth/classroom.student-submissions.me.readonly https://www.googleapis.com/auth/classroom.student-submissions.students.readonly https://www.googleapis.com/auth/classroom.courses https://www.googleapis.com/auth/classroom.courses.readonly",
+        scope: "https://www.googleapis.com/auth/classroom.coursework.me",
       })
       .then(
         function () {
@@ -184,8 +183,8 @@ const Classroom = ({ userObj }) => {
     update(0);
   };
   const onClick = async () => {
-    await authenticate();
-    load();
+    //await authenticate();
+    //load();
   };
   useEffect(() => {
     setTimeout(() => {
