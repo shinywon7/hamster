@@ -3,6 +3,7 @@ import { dbService } from "fbase";
 import { gapi } from "gapi-script";
 import Work from "components/Work";
 import ClassroomLogo from "static/ClassroomLogo";
+import { faLessThanEqual } from "@fortawesome/free-solid-svg-icons";
 
 let workArray = [];
 let tried = false;
@@ -16,11 +17,12 @@ const Classroom = ({ userObj }) => {
         "749452123667-6got7hn22erf9u7tuv6iv0nldisrbbkr.apps.googleusercontent.com",
     });
   });
-  function authenticate() {
-    return gapi.auth2
+  async function authenticate() {
+    return await gapi.auth2
       .getAuthInstance()
       .signIn({
-        scope: "https://www.googleapis.com/auth/classroom.coursework.me",
+        scope:
+          "https://www.googleapis.com/auth/classroom.coursework.me https://www.googleapis.com/auth/classroom.courses.readonly https://www.googleapis.com/auth/classroom.coursework.students https://www.googleapis.com/auth/classroom.announcements https://www.googleapis.com/auth/classroom.student-submissions.students.readonly https://www.googleapis.com/auth/classroom.student-submissions.me.readonly",
       })
       .then(
         function () {
@@ -46,7 +48,7 @@ const Classroom = ({ userObj }) => {
       );
   }
   const getWork = async (course, work) => {
-    return await gapi.client.classroom.courses.courseWork.studentSubmissions
+    return gapi.client.classroom.courses.courseWork.studentSubmissions
       .list({
         courseId: course.id,
         courseWorkId: work.id,
@@ -106,7 +108,7 @@ const Classroom = ({ userObj }) => {
       );
   };
   const getCourseWork = async (course) => {
-    return await gapi.client.classroom.courses.courseWork
+    return gapi.client.classroom.courses.courseWork
       .list({
         courseId: course.id,
       })
@@ -122,7 +124,7 @@ const Classroom = ({ userObj }) => {
       );
   };
   async function getCourseList() {
-    return await gapi.client.classroom.courses.list({}).then(
+    return gapi.client.classroom.courses.list({}).then(
       async function (response) {
         response.result.courses.map(async (course) => {
           const { id, name } = course;
@@ -183,8 +185,8 @@ const Classroom = ({ userObj }) => {
     update(0);
   };
   const onClick = async () => {
-    //await authenticate();
-    //load();
+    await authenticate();
+    load();
   };
   useEffect(() => {
     setTimeout(() => {

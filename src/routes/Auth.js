@@ -24,9 +24,7 @@ const Auth = () => {
   };
   return (
     <div className="authContainer">
-      <p class="test">
-        <span className="authTitle">인형원의 햄스터봇</span>
-      </p>
+      <span className="authTitle">인형원의 햄스터봇</span>
       <AuthForm />
       <button onClick={onSocialClick} name="google" className="authBtn">
         구글로 로그인 <FontAwesomeIcon icon={faGoogle} />
