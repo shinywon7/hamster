@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/hamster/static/css/main.f1895a17.css",
-    "main.js": "/hamster/static/js/main.d406b3bd.js",
+    "main.js": "/hamster/static/js/main.fd692b8a.js",
     "static/media/hamsterBackground.jpg": "/hamster/static/media/hamsterBackground.030985204b2ffaf80fe0.jpg",
     "index.html": "/hamster/index.html",
     "main.f1895a17.css.map": "/hamster/static/css/main.f1895a17.css.map",
-    "main.d406b3bd.js.map": "/hamster/static/js/main.d406b3bd.js.map"
+    "main.fd692b8a.js.map": "/hamster/static/js/main.fd692b8a.js.map"
   },
   "entrypoints": [
     "static/css/main.f1895a17.css",
-    "static/js/main.d406b3bd.js"
+    "static/js/main.fd692b8a.js"
   ]
 }
